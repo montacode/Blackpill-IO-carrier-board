@@ -1,0 +1,225 @@
+Blackpill Interface Board
+Interfacing STM32F4xx BlackPill Development Board
+
+====================
+Introduction
+
+The STM32F4xx BlackPill interface is designed to expand the capabilities of the
+BlackPill STM32F411 development board. It provides robust I/O functionality, 
+reliable power separation, and versatile communication options, 
+making it ideal for industrial automation, motor control, and embedded system prototyping
+development
+Foto Board mit Blackpill
+
+Scope of this documentation
+This datasheet describes the features and functionality of the STM32F4xx BlackPill interface.
+
+Typcial applications
+- learning
+- development purpose
+- encoder/testing applications
+
+Hardware overview
+
+Übersichtsbild - Blockdiagramm
+-	Input Voltage: 24 VDC
+-	Separate power domains for logic and PROFET outputs for improved safety and noise isolation
+
+
+4	Overview
+============
+-	3x Encoder Interfaces
+-	A, B, and Index inputs
+-	Selectable encoder supply voltage: 5V or 24V
+-	3x PROFET High-Side Switch Outputs (Optional)
+-	24V output control for actuators or indicators
+-	1x Analog/PWM-Output
+-	Voltage range: 0–10V for control signals
+-	External Communication Module Interface
+-	4 configurable I/O pins supporting RS232, SPI, I²C, or CAN
+-	Suitable for external modules such as Bluetooth, Wi-Fi, or CAN transceivers
+-	8 x General Purpose I/O
+-	Configurable as SPI, RS232, digital input/output, analog input, or encoder home signal
+-	2x General Purpose Status LEDs
+-	1x Buzzer
+-	I/O lines feature protection circuitry for enhanced durability
+-	Fits to hat rail case or fully closed plastic case
+
+
+2x Bild bottom und top layer foto
+
+
+Genauere Beschreibung
+=====================
+Power Supply
+
+Power supply
+----------------------
+24 VDC logic supply
+^^^^^^^^^^^^^^^^^^^^
+9-24 VDC input
+Verpolungsdiode
+TSV-Eingangsschuzt
+PTC-Sicherung 0.2A
+Eingangsfilter
+DCDC: 
+Recom ROF-78E5.0-0.5SMD
+oder 
+Recom R-785.0-0.5 THT
+input voltage 9-36V, 5V out, 400 mA
+
+24 VDC IO supply
+^^^^^^^^^^^^^^^^
+24 VDC input
+Verpolungsdiode
+22uF/50V Elko
+
+Digital/analoge inputs
+----------------------
+Eingangsschuztschalteung Vorwiderstand 22k
+Über- und Unterspannungsschutz mit BAT54S
+DAhiner 1n  Kondensator als Filter
+Eingangstrom bei 24VDC: (24V-0,3V)/22k = 1.07 mA
+
+Encoder interfaces
+----------------------
+3 Encoders, A,B-Signaleingänge
+Vorwiderstand 12k
+Eingangsspannung 24V-
+BAT54S über und unterspannugsschutz
+jeder QEA und QEB- Eingangs mit LED ausgestattet
+Spannung über Jumper 5V oder 24VDC möglich. Vorwiderstand dann entsprechend anpassen
+optional 1nF Filterkondensator, wenn als digitaler Eingang verwedent
+Jeder Stecker 4 pole, PWR, QEA, QEB, GND
+
+Digital Profet-outputs
+----------------------
+Analogue/PWM-output
+1x analog output 0-10V, can be modified by adapting resistors
+or used as PWM-Output
+
+
+Buzzer
+------
+Murata Electronics PKLCS1212E2000-R1
+Murata Piezo-Signalgeber für Messwandler Summer, 70 dB, SMD 3 mm, 25V ac, 3 V ac 12 mm 12mm
+
+
+Leds
+----
+2 x general purpose Leds
+
+Serial resp. bluetoth module interface
+----------------------
+6-poliger Stecker, 2mm pitch, THT, e.g. jST oder andere
+Pin 1: Enable
+Pin 2: +5V0 or +3V3 depending on Resistor R50 or R51 bridge
+Pin 3: GND
+Pin 4: Tx
+Pin 5: Rx
+Pin 6: digital input State
+
+Can directly be connected wit e.g. HC-05 Bluetooh interface module or other
+
+
+Test points
+----------------------
+Power Messpunkte 3V3 und GND
+Keystone Electronics, 5003, THT miniature test point
+
+
+hardware version detection
+----------------------
+3 Widerstände
+
+JTag-Programming interface
+----------------------
+
+Steckverbinder
+----------------------
+Vertikale oder gewinkelte Leiterplattensteckverbinder
+Raster 3,81 mm
+z.B. PhoenixContact MC 1.5/ 4-G-3.81 resp. MCV 1.5/ 4-G-3.81
+
+Stecker: MC 4 ST 3,81
+je nach Gehäuse
+
+
+Foto Programmiergerät 
+Foto Programmer in action
+
+Zusammenbau
+===========
+Vorgehen:
+THT-Bauteile einlöten
+Versorgung
+mögliche DCDC und notwendige Brücken
+
+
+
+
+Technical data
+----------------------
+Dimensions
+Pos	Parameter	Value
+1	Length [l]	76.25 mm
+2	Width [w]	72 mm
+3	Height [h]	25 mm
+
+weight
+Pos	Description	Value
+1	STM32F4xx BlackPill interface	80 g
+
+Environmental limits
+Development only
+
+Case/Mounting
+----------------------
+
+
+IP69 case
+Hersteller RND
+RND 455-00184
+Plastic Enclosure
+115 x 90 x 55 mm light grey PC IP 65
+
+Hat rail case
+PhoenixContact UMK-BE 45/UMK-FE etc.
+
+
+additional Hardware
+----------------------
+HC-05 Bluetooth-Modul
+
+Examples
+========
+
+STM32IDE
+--------
+Beispiel 1
+Kleines c-Beispiel, ansteuerung blinkende Leuchtdiode
+
+Beispiel 2
+Kleines Beispiel digitaler Eingang und Buzzer
+
+
+Beispiel 3
+Encoder
+
+
+Beispiel 4
+Eincoder und Ausgabe Wert in Ascii auf Serieller Schnittstelle
+
+Arduino IDE
+-----------
+Das selbe nochmals
+
+
+
+Disclaimer
+STM32F is a registered trademark of xxx Corporation.
+
+License
+mach einen vorschlag
+
+ 
