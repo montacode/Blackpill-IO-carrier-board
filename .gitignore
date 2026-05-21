@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-docs/build/
-=======
-docs/build/
->>>>>>> 35a883a (initial documentation upload)
+# Verzeichnisse, die Git ignorieren soll
+docs/backup/
+
+# Die Eclipse-Einstellungen blockieren
 .settings/
