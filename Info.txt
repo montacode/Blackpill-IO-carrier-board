@@ -1,0 +1,8 @@
+# 1. Änderungen für Git "sichtbar" machen
+git add .
+
+# 2. Die Änderungen mit einer kurzen Notiz speichern
+git commit -m "Änderung in der Dokumentation: [was du gemacht hast]"
+
+# 3. Hochladen zu GitHub
+git push
