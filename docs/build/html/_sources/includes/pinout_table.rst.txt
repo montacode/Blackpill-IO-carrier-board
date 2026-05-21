@@ -1,0 +1,11 @@
+:orphan:
+.. list-table:: Pinbelegung
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Pin
+     - Funktion
+     - Beschreibung
+   * - PA0
+     - Encoder A
+     - Eingang fuer Phase A

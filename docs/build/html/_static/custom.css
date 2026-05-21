@@ -1,0 +1,151 @@
+/* ==========================================================================
+   SIDEBAR & CONTENT ALIGNMENT (CALIBRI & STRICT LAYOUT)
+   ========================================================================== */
+
+/* 1. Schriftart global auf Calibri erzwingen */
+body, 
+div.sphinxsidebar, 
+div.sphinxsidebar input, 
+div.body, 
+h1, h2, h3, h4, p, li, a {
+    font-family: Calibri, Candara, "Segoe UI", Optima, Arial, sans-serif !important;
+}
+
+/* 2. Sidebar Grundkonfiguration */
+div.sphinxsidebar {
+    background-color: rgb(244, 247, 249) !important;
+    border-right: 1px solid #dcdfe3;
+    width: 300px;
+}
+
+/* 3. Logo-Bereich (Ausrichtung an der lila Linie) */
+div.sphinxsidebar .about,
+div.sphinxsidebar h1.logo,
+div.sphinxsidebar #logo,
+div.sphinxsidebar p.logo {
+    text-align: left !important; 
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+div.sphinxsidebar img.logo {
+    display: block !important;
+    margin-left: 5px !important; 
+    margin-top: 10px !important;  
+    margin-bottom: 10px !important;
+    max-width: 220px !important;
+    height: auto !important;
+}
+
+/* 4. Navigation (Hauptkapitel) */
+div.sphinxsidebar h3, 
+div.sphinxsidebar p.caption {
+    display: none !important; 
+}
+
+div.sphinxsidebar ul {
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+div.sphinxsidebar a {
+    color: #455a64 !important;
+    display: block;
+    padding: 10px 25px; 
+    text-decoration: none !important;
+    border-left: 5px solid transparent; 
+    transition: all 0.1s ease-in-out;
+    text-align: left !important;
+    font-size: 1.1em;
+}
+
+/* --- 4a. Hierarchie & Unterkapitel --- */
+
+div.sphinxsidebar ul ul li a {
+    padding-left: 45px !important; 
+    font-size: 0.95em !important;   
+    font-weight: normal !important;
+}
+
+div.sphinxsidebar ul ul ul li a {
+    padding-left: 65px !important;
+}
+
+div.sphinxsidebar ul ul li.current > a {
+    border-left: 3px solid rgb(0, 124, 145) !important;
+}
+
+/* Hover & Aktiv-Zustand */
+div.sphinxsidebar a:hover {
+    background-color: #eef2f5;
+    color: rgb(0, 124, 145) !important; 
+}
+
+div.sphinxsidebar ul li.current > a {
+    background-color: #e8f1f3 !important; 
+    color: rgb(0, 124, 145) !important;
+    border-left: 5px solid rgb(0, 124, 145) !important; 
+    font-weight: bold;
+}
+
+/* 5. Hauptinhalt (Body) & Listen-Styling */
+div.document {
+    background-color: #ffffff;
+}
+
+div.body {
+    padding-top: 30px !important; 
+    padding-left: 40px !important;
+}
+
+/* --- Spezifisches Styling für quadratische Bullets --- */
+
+/* Standard-Punkte im Fließtext entfernen */
+div.body ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 1.2em !important; /* Platz für die neuen Bullets */
+}
+
+/* Listen-Elemente für Positionierung vorbereiten */
+div.body ul li {
+    position: relative;
+    padding-left: 0.5em;
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+/* Das Quadrat als Pseudoelement vor dem Text */
+div.body ul li::before {
+    content: "■"; 
+    color: rgb(0, 124, 145) !important; /* Petrol-Ton passend zur Sidebar */
+    font-size: 0.8em;
+    
+    position: absolute;
+    left: -1.1em;
+    top: 0.1em; /* Feinjustierung für Calibri */
+    
+    display: inline-block;
+}
+
+/* Verschachtelte Listen (Sub-Bullets) */
+div.body ul ul {
+    margin-top: 4px;
+    margin-left: 1.5em !important;
+}
+
+h1 {
+    margin-top: 0 !important;
+    font-weight: normal;
+    color: #2c3e50;
+}
+
+/* 6. Suchfeld */
+#searchbox {
+    margin-top: 30px;
+    padding: 20px 25px;
+    border-top: 1px solid #dcdfe3;
+}

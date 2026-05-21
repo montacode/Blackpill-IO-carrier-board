@@ -1,0 +1,927 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware Description &mdash; BlackPill 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/standard.css?v=23468517" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="STM32CubeIDE &amp; Code Examples" href="../chapter_3_stm32ide/index.html" />
+    <link rel="prev" title="Hardware Overview" href="02_hardware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/nav_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of content</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_intro/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#the-blackpill-i-o-carrier">The BlackPill I/O Carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#key-development-pillars">Key Development Pillars</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">I/O carrier hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="02_hardware.html">Hardware Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_hardware.html#main-features">Main Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_hardware.html#technical-description">Technical Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_hardware.html#typical-applications">Typical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_hardware.html#development-and-evaluation-notice">Development and Evaluation Notice</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#component-layout">Component Layout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#top-side-functions">Top Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bottom-side-functions">Bottom Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block-diagram-blackpill-i-o-carrier">Block diagram BlackPill I/O carrier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#technical-summary">Technical Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-customization-and-assembly">Hardware Customization and Assembly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-design">Hardware Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#power-supply-and-protection">Power Supply and Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#digital-and-analog-inputs">Digital and Analog Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encoder-interfaces">Encoder Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analog-or-pwm-output">Analog or PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operational-amplifier-power-supply">Operational Amplifier Power Supply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buzzer-leds">Buzzer &amp; LEDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#miniature-test-points-tp1-tp2">Miniature Test Points (TP1, TP2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serial-interface-wireless-expansion">Serial Interface &amp; Wireless Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-and-debugging">Programming and Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#st-link-v2-debugger">ST-Link V2 Debugger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-circuit-debugging-icd">In-Circuit Debugging (ICD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flash-procedure">Flash Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enclosure-options-and-mounting">Enclosure Options and Mounting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#polycarbonate-enclosure-ip65">Polycarbonate enclosure (IP65)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#din-rail-mounting-hat-rail">DIN-Rail Mounting (Hat Rail)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-data">Technical Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dimensions-and-weight">Dimensions and Weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environmental-limits">Environmental Limits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#component-assembling">Component Assembling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#emc-and-safety-notice">EMC and Safety Notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_stm32ide/index.html">STM32CubeIDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#examples-overview">Examples Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-1-blinking-led-pb10">Example 1: Blinking LED (PB10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-2-serial-pwm-buzzer-control-pb8">Example 2: Serial PWM Buzzer Control (PB8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-3-32-bit-encoder-reading-pa1-pa5">Example 3: 32-Bit Encoder Reading (PA1 &amp; PA5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-4-pwm-ramp-dac-signal-pb9">Example 4: PWM Ramp / DAC Signal (PB9)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_arduino/index.html">Arduino IDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#pin-mapping-overview">Pin Mapping Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-1-blinking-led-status-check">Example 1: Blinking LED (Status Check)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-2-serial-usb-control-buzzer">Example 2: Serial USB Control &amp; Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-3-32-bit-hardware-encoder-reading">Example 3: 32-Bit Hardware Encoder Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-4-5-second-pwm-ramp">Example 4: 5-Second PWM Ramp</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project: Digital Indexer:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_dro_app/index.html">Project Digital Indexer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#project-overview">Project Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#documentation-structure">Documentation Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/hardware_setup.html">Digital indexer - Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/hardware_setup.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/firmware_logic.html">Digital indexer - Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/firmware_logic.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/android_app.html">Digital indexer - Android Application: AKKON DRO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#main-interface-and-visualization">Main Interface and Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#targeting-and-divider-function">Targeting and Divider Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#coordinate-systems-and-offsets">Coordinate Systems and Offsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#system-management-and-communication">System Management and Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#settings-and-customization">Settings and Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/lathe_integration.html">Digital indexer - LATHE integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/lathe_integration.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/operation_manual.html">Ditial indexer - operation manual Android App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/operation_manual.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html">Python &amp; Read Encoders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#functional-description">Functional Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#program-code">Program Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#program-output-result">Program output result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#development-disclaimer">Development Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_python/index.html">Python Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html">Hardware Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#module-dro_hal">DRO Hardware Abstraction Layer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro-hardware-abstraction-layer-hal">DRO Hardware Abstraction Layer (HAL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController"><code class="docutils literal notranslate"><span class="pre">DROController</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Revision History</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BlackPill</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">I/O carrier hardware</a></li>
+      <li class="breadcrumb-item active">Hardware Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/chapter_2_hardware/pcb_details.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hardware-description">
+<h1>Hardware Description<a class="headerlink" href="#hardware-description" title="Link to this heading"></a></h1>
+<p>Interfacing STM32F411 BlackPill Development Board.</p>
+<p>The <strong>STM32F411 BlackPill I/O Carrier</strong> is designed to expand the capabilities of the BlackPill STM32F411 development board. It provides robust I/O functionality, reliable power separation, and versatile communication options, making it suitable for embedded system prototyping, motor control evaluation, and development tasks.</p>
+<a class="reference internal image-reference" href="../_images/BlackPillInterface_3D.jpg"><img alt="3D View of the Board" class="align-center" src="../_images/BlackPillInterface_3D.jpg" style="width: 600px;" />
+</a>
+<p><strong>Scope of this documentation</strong></p>
+<p>This datasheet describes the features and functionality of the STM32F4xx BlackPill I/O Carrier board.</p>
+<p><strong>Typical applications</strong></p>
+<ul class="simple">
+<li><p>Learning and educational purposes</p></li>
+<li><p>Rapid prototyping and hardware development</p></li>
+<li><p>Encoder testing and high-speed signal evaluation</p></li>
+</ul>
+<section id="component-layout">
+<h2>Component Layout<a class="headerlink" href="#component-layout" title="Link to this heading"></a></h2>
+<p>The following images provide a visual guide to the functional sections of the BlackPill I/O Carrier, highlighting the location of connectors, protection circuits, and expansion headers.</p>
+<section id="top-side-functions">
+<h3>Top Side Functions<a class="headerlink" href="#top-side-functions" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/27_BPInterface_functionality_top.png"><img alt="Top Side Component Map" src="../_images/27_BPInterface_functionality_top.png" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 2:  </span><span class="caption-text">Functionality BlackPill I/O carrier I</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The top side hosts the primary user interfaces, including the BlackPill module headers, the 24V terminal blocks for evaluation, and the status LEDs for the digital inputs.</p>
+</section>
+<section id="bottom-side-functions">
+<h3>Bottom Side Functions<a class="headerlink" href="#bottom-side-functions" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/28_BPInterface_functionality_bot.png"><img alt="Bottom Side Component Map" src="../_images/28_BPInterface_functionality_bot.png" style="width: 60%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 3:  </span><span class="caption-text">Functionality BlackPill I/O carrier I</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The bottom side contains several SMD components, including the voltage regulation traces and the optional solder bridges (<strong>R50/R51</strong>) used to configure the power supply for the serial interface.</p>
+</section>
+<section id="block-diagram-blackpill-i-o-carrier">
+<h3>Block diagram BlackPill I/O carrier<a class="headerlink" href="#block-diagram-blackpill-i-o-carrier" title="Link to this heading"></a></h3>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/00_Blackpill_Development_Interface.png"><img alt="System Block Diagram" src="../_images/00_Blackpill_Development_Interface.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 4:  </span><span class="caption-text">Block diagram BlackPill I/O carrier</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="technical-summary">
+<h3>Technical Summary<a class="headerlink" href="#technical-summary" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Input Voltage:</strong> 24 VDC nominal.</p></li>
+<li><p><strong>Power Domains:</strong> Separate power domains for logic and PROFET outputs for improved safety and noise isolation during development.</p></li>
+<li><p><strong>3x Encoder Interfaces:</strong> A, B, and Index inputs with selectable supply (5V/24V).</p></li>
+<li><p><strong>3x PROFET Outputs:</strong> Optional 24V high-side switches for actuator prototyping.</p></li>
+<li><p><strong>1x Analog/PWM-Output:</strong> 0–10V voltage range for signal evaluation.</p></li>
+<li><p><strong>User Feedback:</strong> 2x Status LEDs and 1x integrated Buzzer.</p></li>
+</ul>
+</section>
+<section id="hardware-customization-and-assembly">
+<h3>Hardware Customization and Assembly<a class="headerlink" href="#hardware-customization-and-assembly" title="Link to this heading"></a></h3>
+<p>The BlackPill I/O Carrier is designed with flexibility in mind to support various development requirements. Several I/O configurations can be modified by adjusting the PCB assembly, allowing for alternative pin mappings or functional variants that may differ from the default schematic representation.</p>
+<p>The board utilizes standard SMD components to balance compact design with ease of maintenance. The smallest components used on the layout have a <strong>0603 footprint</strong> (1608 Metric). These parts are large enough to be soldered by hand with moderate soldering skills and basic equipment, making the board accessible for manual prototyping, repairs, or custom modifications during the evaluation phase.</p>
+</section>
+</section>
+<section id="hardware-design">
+<h2>Hardware Design<a class="headerlink" href="#hardware-design" title="Link to this heading"></a></h2>
+<section id="power-supply-and-protection">
+<h3>Power Supply and Protection<a class="headerlink" href="#power-supply-and-protection" title="Link to this heading"></a></h3>
+<section id="vdc-logic-supply">
+<h4>24 VDC Logic Supply<a class="headerlink" href="#vdc-logic-supply" title="Link to this heading"></a></h4>
+<p>The primary logic supply accepts <strong>9-24 VDC</strong>. It features a reverse polarity diode, TVS transient protection, and a 0.2A PTC fuse. Regulation is provided by high-efficiency Recom converters (ROF-78E5.0 or R-785.0).</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/13_Supply_24VDC_logic_input_with_protection_and_regulators.png"><img alt="Power Supply Schematic" src="../_images/13_Supply_24VDC_logic_input_with_protection_and_regulators.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 5:  </span><span class="caption-text">24 VDC logic power supply</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vdc-io-supply-monitoring">
+<h4>24 VDC IO Supply &amp; Monitoring<a class="headerlink" href="#vdc-io-supply-monitoring" title="Link to this heading"></a></h4>
+<p>A separate 24 VDC input stage feeds the PROFET power domain.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/10_Supply_24VDC_IO.png"><img alt="IO Supply Schematic" src="../_images/10_Supply_24VDC_IO.png" style="width: 30%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 6:  </span><span class="caption-text">24 VDC I/O power supply</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The board includes active voltage monitoring to ensure the 24V IO domain is within safe limits for evaluation.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/12_Supply_24VDC_IO_Voltage_Monitoring.png"><img alt="Voltage Monitoring Circuit" src="../_images/12_Supply_24VDC_IO_Voltage_Monitoring.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 7:  </span><span class="caption-text">Optional power supply monitoring to analogue input</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="v-only-operation-and-power-configuration">
+<h4>5V-Only Operation and Power Configuration<a class="headerlink" href="#v-only-operation-and-power-configuration" title="Link to this heading"></a></h4>
+<p>With specific component assembly, the BlackPill I/O Carrier can be operated using only a 5V power supply. To enable this mode, the corresponding solder bridges must be installed on the PCB to bypass the standard 24V regulation stages.</p>
+<p>This configuration is particularly useful for development environments where a 24V industrial supply is not available, though it may limit the functionality of the 24V-level I/O and PROFET outputs.</p>
+</section>
+</section>
+<section id="digital-and-analog-inputs">
+<h3>Digital and Analog Inputs<a class="headerlink" href="#digital-and-analog-inputs" title="Link to this heading"></a></h3>
+<p>Inputs feature a 22k series resistor and <strong>BAT54S</strong> clamping diodes for over- and undervoltage protection.
+In addition a 1nF filter capacitor can optionally be assembled.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/37_DigitalInput.png"><img alt="IO Supply Schematic" src="../_images/37_DigitalInput.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 8:  </span><span class="caption-text">Hardware design of a digital input</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Input Current Calculation:</strong>
+At a nominal 24VDC input, the current is limited:</p>
+<div class="math notranslate nohighlight">
+\[I = \frac{24V - 0.3V}{22k\Omega} \approx 1.07 mA\]</div>
+</section>
+<section id="encoder-interfaces">
+<h3>Encoder Interfaces<a class="headerlink" href="#encoder-interfaces" title="Link to this heading"></a></h3>
+<p>The board supports three encoders inputs with status LEDs for each QEA/QEB channel. Voltage selection (5V/24V) is handled via jumpers for each encoder separately. All encoder inputs are protected against over- and undervoltage. The <strong>QEIAi, QEIBi</strong> inputs are 24V-tolerant digital interfaces designed to bridge high-voltage signals with the 3.3V logic level of the STM32 MCU during development. This stage is optimized for encoder phase signals, providing signal conditioning, protection, and visual feedback.</p>
+<p>If not used as encoder, inputs can also be used as general purpose inputs.</p>
+<section id="input-circuit-architecture">
+<h4>Input Circuit Architecture<a class="headerlink" href="#input-circuit-architecture" title="Link to this heading"></a></h4>
+<p>The circuit utilizes a passive conditioning network combined with active protection components:</p>
+<ul class="simple">
+<li><p><strong>Signal Conditioning:</strong> A series resistor <strong>R25 (12kOhm)</strong> works in conjunction with <strong>C3 (1nF)</strong> to form a hardware low-pass filter.</p></li>
+<li><p><strong>Overvoltage Protection:</strong> A <strong>BAT54S</strong> dual Schottky diode (D5) clamps the input voltage to the <em>+3V3</em> and <em>GND</em> rails, protecting the MCU pin from transients.</p></li>
+<li><p><strong>Visual Indication:</strong> A green LED (D7) provides a local “Signal High” status, driven through a <strong>680Ohm</strong> current-limiting resistor (R27).</p></li>
+</ul>
+</section>
+<section id="electrical-parameters">
+<h4>Electrical Parameters<a class="headerlink" href="#electrical-parameters" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-number">Table 1:  </span><span class="caption-text">Input Characteristics</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Typical Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nominal Input Voltage</strong></p></td>
+<td><p>24 VDC</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Input Impedance</strong></p></td>
+<td><p>~12 kOhm (determined by R25)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hardware Filter (RC)</strong></p></td>
+<td><p>tau approx. 12 us (Cut-off frequency ~13.2 kHz)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LED Operating Current</strong></p></td>
+<td><p>~1.5 - 2.0 mA &#64; 24V</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Logic High Threshold</strong></p></td>
+<td><p>&gt; 15 V (ensures LED visibility and logic transition)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="technical-calculation">
+<h4>Technical Calculation<a class="headerlink" href="#technical-calculation" title="Link to this heading"></a></h4>
+<p>The total input current ($I_{in}$) at 24V is the sum of the current flowing to the MCU protection stage and the LED indicator stage:</p>
+<div class="math notranslate nohighlight">
+\[I_{in} \approx \frac{V_{in} - V_{f(LED)}}{R_{27}} + \frac{V_{in} - V_{clamping}}{R_{25}}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The use of the <strong>BAT54S</strong> Schottky diode is critical as it ensures the forward voltage drop ($V_f approx 0.3V$) is lower than the MCU’s internal ESD diode drop, effectively shunting current away from the processor during overvoltage events.</p>
+</div>
+<figure class="align-default" id="id9">
+<img alt="Encoder Connection" src="../_images/05_Con_Encoer1.png" />
+<figcaption>
+<p><span class="caption-number">Figure 9:  </span><span class="caption-text">Pinnning termial for encoder input</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/06_Encoder1_Input_QEA1.png"><img alt="Encoder Signal Conditioning" src="../_images/06_Encoder1_Input_QEA1.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 10:  </span><span class="caption-text">Hardware design of digital encoder input QEAi</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="analog-or-pwm-output">
+<h3>Analog or PWM Output<a class="headerlink" href="#analog-or-pwm-output" title="Link to this heading"></a></h3>
+<p>Converts PWM signals to a 0-10V analog level, supported by a dedicated OPV supply stage.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/09_Analog_PWM_Out.png"><img alt="PWM to Analog Output" src="../_images/09_Analog_PWM_Out.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 11:  </span><span class="caption-text">Hardware design analog or PWM output</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The output stage is based on the <strong>LM7322</strong> High Output Current Operational Amplifier. This circuit is designed to convert a 3.3V MCU signal into a higher-level output for testing purposes. Depending on the assembly of the input filter, the board supports two primary functional variants.</p>
+<section id="circuit-architecture">
+<h4>Circuit Architecture<a class="headerlink" href="#circuit-architecture" title="Link to this heading"></a></h4>
+<p>The configuration uses a non-inverting amplifier topology with a theoretical gain ($G$) determined by the feedback network (R38, R39):</p>
+<div class="math notranslate nohighlight">
+\[G = 1 + \frac{R_{39}}{R_{38}} = 1 + \frac{68k\Omega}{22k\Omega} \approx 4.09\]</div>
+<p>At a 3.3V input, the maximum theoretical output voltage is approx. 13.5V.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output is typically scaled to <strong>0..10V</strong> by adjusting the PWM duty cycle or the input voltage divider (R41, R42, R43).</p>
+</div>
+</section>
+<section id="functional-variants">
+<h4>Functional Variants<a class="headerlink" href="#functional-variants" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt><strong>Variant 1: 0..10V Analog Output</strong></dt><dd><ul class="simple">
+<li><p><strong>Configuration:</strong> Low-pass filter (R41, C9) is populated.</p></li>
+<li><p><strong>Function:</strong> The 3.3V PWM signal is smoothed into a stable DC voltage.</p></li>
+<li><p><strong>Filter Characteristics:</strong> With <strong>R41 (270kOhm)</strong> and <strong>C9 (100nF)</strong>, the settling time is optimized for stable analog evaluation of actuators or VFDs.</p></li>
+</ul>
+</dd>
+<dt><strong>Variant 2: High-Power PWM Output</strong></dt><dd><ul class="simple">
+<li><p><strong>Configuration:</strong> Filter capacitor <strong>C9</strong> is omitted (left unpopulated).</p></li>
+<li><p><strong>Function:</strong> The LM7322 acts as a high-speed driver, amplifying the 3.3V PWM signal directly to a 24V-level (up to the supply rail) PWM signal.</p></li>
+<li><p><strong>Benefit:</strong> Leverages the LM7322’s high current capability to drive capacitive loads or small DC motors directly during prototyping.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="electrical-specifications">
+<h4>Electrical Specifications<a class="headerlink" href="#electrical-specifications" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-number">Table 2:  </span><span class="caption-text">Output Characteristics</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value / Specification</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Operational Amplifier</strong></p></td>
+<td><p>LM7322 (High Output Current, Rail-to-Rail)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output Voltage Range</strong></p></td>
+<td><p>0..10V (typical) up to V_in (max)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Max. Output Current</strong></p></td>
+<td><p>50 mA (protected by <strong>R40</strong>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Output Protection</strong></p></td>
+<td><p><strong>R40 (100Ohm)</strong> series resistor for short-circuit current limiting.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Input Impedance</strong></p></td>
+<td><p>High impedance via R41/R42 network.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="safety-and-robustness">
+<h4>Safety and Robustness<a class="headerlink" href="#safety-and-robustness" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Short-Circuit Protection:</strong> The <strong>100Ohm series resistor (R40)</strong> at the output terminal protects the LM7322 and the MCU from accidental shorts to ground or wiring errors.</p></li>
+<li><p><strong>Thermal Stability:</strong> The LM7322 is chosen for its ability to handle high peak currents during evaluation without significant thermal drift.</p></li>
+<li><p><strong>Signal Integrity:</strong> The voltage divider (R42, R43) ensures that the non-inverting input remains within the operational common-mode range of the amplifier.</p></li>
+</ul>
+</section>
+</section>
+<section id="operational-amplifier-power-supply">
+<h3>Operational Amplifier Power Supply<a class="headerlink" href="#operational-amplifier-power-supply" title="Link to this heading"></a></h3>
+<figure class="align-right" id="id13">
+<a class="reference internal image-reference" href="../_images/16_Analog_PWM_OPV_supply.png"><img alt="LM7322 Power Supply Filtering" src="../_images/16_Analog_PWM_OPV_supply.png" style="width: 180px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 12:  </span><span class="caption-text">Power supply operation amplifier</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The power supply for the <strong>LM7322</strong> operational amplifier is specifically conditioned to ensure high signal integrity for development tasks.
+* <strong>Decoupling:</strong> A <strong>100nF capacitor (C8)</strong> is placed directly across the VOP+ and VOP- pins to suppress high-frequency noise.
+* <strong>RC-Filtering:</strong> The supply lines include <strong>10 Ohm resistors (R36, R37)</strong> in series with the 24V supply and Ground. This creates a low-pass filter effect together with the decoupling capacitors, protecting the OpAmp from transients on the 24V rail. This robust filtering is essential when the output stage is used in <strong>PWM mode</strong>, as it prevents switching noise from coupling back into sensitive analog sections.</p>
+</section>
+<section id="buzzer-leds">
+<h3>Buzzer &amp; LEDs<a class="headerlink" href="#buzzer-leds" title="Link to this heading"></a></h3>
+<p>A <strong>Murata PKLCS1212E2000-R1</strong> piezo ringer (70 dB) provides acoustic feedback.</p>
+<figure class="align-default" id="id14">
+<img alt="Buzzer Schematic" src="../_images/01_buzzer.png" />
+<figcaption>
+<p><span class="caption-number">Figure 13:  </span><span class="caption-text">Hardware design piezo buzzer control</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../_images/15_piezo_signal_PKLCS1212E2000-R1_frequency_response.png"><img alt="Buzzer Frequency Response" src="../_images/15_piezo_signal_PKLCS1212E2000-R1_frequency_response.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 14:  </span><span class="caption-text">Frequency response piezo buzzer</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="miniature-test-points-tp1-tp2">
+<h3>Miniature Test Points (TP1, TP2)<a class="headerlink" href="#miniature-test-points-tp1-tp2" title="Link to this heading"></a></h3>
+<p>The board features specific measurement points for the <strong>3.3V logic rail</strong> and <strong>GND</strong>. These allow for precise Multimeter or Oscilloscope measurements without the risk of accidental shorts on high-density component pins.
+* <strong>3.3V Rail (TP1):</strong> Used to verify the output of the internal voltage regulators and ensure stable power to the STM32 MCU.
+* <strong>GND (TP2):</strong> Provides a reliable common ground reference for all signal measurements.</p>
+<p><strong>Hardware Recommendation:</strong>
+For an evaluation setup, it is recommended to install <strong>Keystone Electronics 5003</strong> THT miniature test points.
+* <strong>Type:</strong> Miniature Surface Mount / Thru-Hole Test Point.
+* <strong>Material:</strong> Phosphor Bronze with Silver Plate.
+* <strong>Benefit:</strong> These color-coded test points provide a secure “hook-on” point for probe tips, ensuring stable readings during monitoring.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Monitoring the 3.3V rail is particularly important when external modules like the <strong>HC-05</strong> are powered via the I/O Carrier to ensure the total current draw remains within the regulator’s limits.</p>
+</div>
+<table class="docutils align-left">
+<colgroup>
+<col style="width: 66.7%" />
+<col style="width: 33.3%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../_images/13_Test_points.png"><img alt="Test Points" src="../_images/13_Test_points.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 15:  </span><span class="caption-text">Hardware design test points</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../_images/26_Keystone_5003_Testpoint.png"><img alt="Keystone Electronics 5003 test point" src="../_images/26_Keystone_5003_Testpoint.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 16:  </span><span class="caption-text">Test point</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="serial-interface-wireless-expansion">
+<h3>Serial Interface &amp; Wireless Expansion<a class="headerlink" href="#serial-interface-wireless-expansion" title="Link to this heading"></a></h3>
+<p>The BlackPill I/O Carrier features a dedicated serial communication header (<strong>J4</strong>) designed for easy integration of external wireless modules or telemetry hardware during prototyping.</p>
+<section id="connector-pinout-j4">
+<h4>Connector Pinout (J4)<a class="headerlink" href="#connector-pinout-j4" title="Link to this heading"></a></h4>
+<p>The 6-pin interface provides standard UART signals along with additional control lines and flexible power options.</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../_images/03_serial_interface.png"><img alt="Serial Interface Schematic" src="../_images/03_serial_interface.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 17:  </span><span class="caption-text">Hardware design serial interface</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Pin Assignment:</strong></p>
+<ul class="simple">
+<li><p><strong>Pin 1 (En):</strong> Digital output for module enabling/control (via R2).</p></li>
+<li><p><strong>Pin 2 (VCC):</strong> Configurable power supply (+5V0 or +3V3).</p></li>
+<li><p><strong>Pin 3 (GND):</strong> Common ground reference.</p></li>
+<li><p><strong>Pin 4 (Tx):</strong> UART Transmit (to PA15).</p></li>
+<li><p><strong>Pin 5 (Rx):</strong> UART Receive (to PB3).</p></li>
+<li><p><strong>Pin 6 (State):</strong> Digital input for status monitoring (via R10).</p></li>
+</ul>
+<p><strong>Power Configuration:</strong>
+The external hardware can be supplied with either <strong>+5V0</strong> or <strong>+3V3</strong> by populating the respective zero-ohm bridge resistors <strong>R50</strong> or <strong>R51</strong>.</p>
+</section>
+<section id="application-example-hc-05-bluetooth-integration">
+<h4>Application Example: HC-05 Bluetooth Integration<a class="headerlink" href="#application-example-hc-05-bluetooth-integration" title="Link to this heading"></a></h4>
+<p>A common use case is the connection of an <strong>HC-05 RS232-Bluetooth module</strong>, enabling wireless data transmission and remote diagnostics during development.</p>
+<table class="borderless docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../_images/HC-05-6_Top.jpg"><img alt="../_images/HC-05-6_Top.jpg" src="../_images/HC-05-6_Top.jpg" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 18:  </span><span class="caption-text">HC-05 Top View</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../_images/HC-05-6_Bot.jpg"><img alt="../_images/HC-05-6_Bot.jpg" src="../_images/HC-05-6_Bot.jpg" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 19:  </span><span class="caption-text">HC-05 Bottom View</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The HC-05 module can be mated directly with the interface header. This setup allows for a seamless wireless bridge between the STM32 controller and a smartphone or PC.</p>
+<p><strong>Mechanical Integration:</strong></p>
+<p>As shown in the enclosure assembly, the Bluetooth module fits comfortably alongside the main hardware within the protective case. This ensures the wireless interface remains shielded from environmental factors during evaluation.</p>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../_images/25_IP65Case.jpg"><img alt="Bluetooth Module integrated in IP65 Case" src="../_images/25_IP65Case.jpg" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 20:  </span><span class="caption-text">IP65 plastic enclosure</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="programming-and-debugging">
+<h2>Programming and Debugging<a class="headerlink" href="#programming-and-debugging" title="Link to this heading"></a></h2>
+<p>The BlackPill I/O Carrier is fully optimized for <strong>In-Circuit Serial Programming (ICSP)</strong> and real-time debugging. This allows developers to flash firmware and monitor internal registers while the board is integrated into its hardware environment.</p>
+<section id="st-link-v2-debugger">
+<h3>ST-Link V2 Debugger<a class="headerlink" href="#st-link-v2-debugger" title="Link to this heading"></a></h3>
+<p>The primary interface for development is the <strong>ST-Link V2</strong> programmer/debugger. It connects via the USB port of a PC and interfaces with the BlackPill’s debug pins.</p>
+<figure class="align-default" id="id22">
+<a class="reference internal image-reference" href="../_images/23_STLink.png"><img alt="ST-Link V2 USB Stick Debugger" src="../_images/23_STLink.png" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 21:  </span><span class="caption-text">ST-Link V2 programmer and debugger</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Key Features of the ST-Link V2:</strong></p>
+<ul class="simple">
+<li><p><strong>Plug-and-Play:</strong> Supported natively by STM32CubeIDE, Keil MDK, and VS Code (Cortex-Debug).</p></li>
+<li><p><strong>Voltage Supply:</strong> Can provide 3.3V to the MCU during programming (max. 100mA).</p></li>
+<li><p><strong>Status Indication:</strong> Integrated LED for communication and power status.</p></li>
+</ul>
+</section>
+<section id="in-circuit-debugging-icd">
+<h3>In-Circuit Debugging (ICD)<a class="headerlink" href="#in-circuit-debugging-icd" title="Link to this heading"></a></h3>
+<p>The board utilizes the <strong>Serial Wire Debug (SWD)</strong> protocol, which is the standard for modern ARM Cortex-M microcontrollers.
+* <strong>Physical Connection:</strong> Programming is performed via the 4-pin header (GND, SWCLK, SWDIO, 3V3) found on the BlackPill module.
+* <strong>JTAG Compatibility:</strong> Although the STM32F411 supports full JTAG, the SWD interface is preferred here to save pins for I/O operations while maintaining full debugging features.
+* <strong>Live Monitoring:</strong> Developers can monitor the state of the digital inputs or the Analog/PWM output in real-time during code execution.</p>
+</section>
+<section id="flash-procedure">
+<h3>Flash Procedure<a class="headerlink" href="#flash-procedure" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Connect</strong> the ST-Link V2 to the BlackPill SWD header.</p></li>
+<li><p><strong>Power</strong> the board either via the ST-Link (for logic-only tests) or via the 24V input (for full system testing).</p></li>
+<li><p><strong>Compile and Upload</strong> using your preferred IDE.</p></li>
+<li><p><strong>Debug</strong> by setting breakpoints to analyze signal processing or PID loop performance.</p></li>
+</ol>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../_images/24_STLink_Board.jpg"><img alt="ST-Link connected to BlackPill" src="../_images/24_STLink_Board.jpg" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 22:  </span><span class="caption-text">BlackPill I/O carrier in enclosure with JTAG debugge</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Ground Loop Awareness</strong>
+When debugging a system connected to 24V power and a PC via USB, ensure that the ground potentials are equalized or use a USB isolator to prevent damage to the ST-Link or the PC.</p>
+</div>
+</section>
+</section>
+<section id="enclosure-options-and-mounting">
+<h2>Enclosure Options and Mounting<a class="headerlink" href="#enclosure-options-and-mounting" title="Link to this heading"></a></h2>
+<p>The BlackPill I/O Carrier is designed for versatility, offering two distinct mounting methods to suit different evaluation environments.</p>
+<section id="polycarbonate-enclosure-ip65">
+<h3>Polycarbonate enclosure (IP65)<a class="headerlink" href="#polycarbonate-enclosure-ip65" title="Link to this heading"></a></h3>
+<p>For applications requiring protection against dust and moisture during field tests, the board is compatible with the <strong>RND 455-00184</strong> plastic enclosure.</p>
+<figure class="align-default" id="id24">
+<a class="reference internal image-reference" href="../_images/22_Case_ABS_IP65.png"><img alt="RND 455-00184 Enclosure IP65" src="../_images/22_Case_ABS_IP65.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 23:  </span><span class="caption-text">IP65 ABS enclosure</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Dimensions:</strong> The enclosure measures 115 x 90 x 55 mm.</p></li>
+<li><p><strong>Connectivity:</strong> There is sufficient internal clearance to install and wire <strong>M8 and/or M12 connectors</strong> directly into the case walls.</p></li>
+<li><p><strong>Benefits:</strong> Using standardized circular connectors makes the installation clearer and simplifies the connection process for external sensors during evaluation.</p></li>
+</ul>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../_images/25_IP65Case.jpg"><img alt="Assembled IP65 Case with Connectors" src="../_images/25_IP65Case.jpg" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 24:  </span><span class="caption-text">BlackPill I/O carrier in IP65 ABS enclosure</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="din-rail-mounting-hat-rail">
+<h3>DIN-Rail Mounting (Hat Rail)<a class="headerlink" href="#din-rail-mounting-hat-rail" title="Link to this heading"></a></h3>
+<p>For installation within experimental control cabinets, the board supports the <strong>PhoenixContact UMK-BE</strong> carrier system.</p>
+<section id="din-rail-mounting-and-pcb-preparation">
+<h4>DIN-Rail Mounting and PCB Preparation<a class="headerlink" href="#din-rail-mounting-and-pcb-preparation" title="Link to this heading"></a></h4>
+<p>To install the board into a DIN-rail enclosure, the corners of the PCB must be removed. The layout includes pre-defined perforated break-off points for this purpose.</p>
+<figure class="align-default" id="id26">
+<a class="reference internal image-reference" href="../_images/34_PCB_Edge_Cut.jpg"><img alt="DIN-Rail Mounted I/O Carrier bottom" src="../_images/34_PCB_Edge_Cut.jpg" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 25:  </span><span class="caption-text">Removing PCB edges</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>However, for a cleaner finish and to avoid mechanical stress on the laminate, it is recommended to either saw off the corners or carefully clip them using a side cutter.</p>
+<figure class="align-default" id="id27">
+<a class="reference internal image-reference" href="../_images/33_Blackpill_IO_Carrier_EdgeCut.jpg"><img alt="DIN-Rail Mounted I/O Carrier bottom" src="../_images/33_Blackpill_IO_Carrier_EdgeCut.jpg" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 26:  </span><span class="caption-text">Removed edges for DIN-rail mounting</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>To ensure the PCB slides smoothly into the enclosure guide rails, the remaining edges should be slightly rounded off with a fine file.</p>
+<figure class="align-default" id="id28">
+<a class="reference internal image-reference" href="../_images/36_PCB_WithoutEdges.jpg"><img alt="DIN-Rail Mounted I/O Carrier bottom" src="../_images/36_PCB_WithoutEdges.jpg" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 27:  </span><span class="caption-text">PCB BlackPill I/O carrier with removed edges</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="din-rail-mounting-assembly">
+<h4>DIN-Rail Mounting Assembly<a class="headerlink" href="#din-rail-mounting-assembly" title="Link to this heading"></a></h4>
+<p>In this configuration, vertical MCV connectors are being utilized.</p>
+<figure class="align-default" id="id29">
+<a class="reference internal image-reference" href="../_images/31_Blackpill_IO_Carrier_DINrail_02.jpg"><img alt="DIN-Rail Mounted I/O Carrier top" src="../_images/31_Blackpill_IO_Carrier_DINrail_02.jpg" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 28:  </span><span class="caption-text">BalckPill I/O carrier in DIN-Rail enclosure top view</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The bottom of the enclosure is equipped with two clips for snapping the unit onto the DIN rail.</p>
+<figure class="align-default" id="id30">
+<a class="reference internal image-reference" href="../_images/32_Blackpill_IO_Carrier_DINrail_bot_03.jpg"><img alt="DIN-Rail Mounted I/O Carrier bottom" src="../_images/32_Blackpill_IO_Carrier_DINrail_bot_03.jpg" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 29:  </span><span class="caption-text">BlackPill I/O carrier in DIN-Rail enclosure bottom view</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Bottom view DIN-Rail case.</p>
+<figure class="align-default" id="id31">
+<a class="reference internal image-reference" href="../_images/21_Case_UMK-BE-45.png"><img alt="DIN-Rail Mounted I/O Carrier Assembly" src="../_images/21_Case_UMK-BE-45.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 30:  </span><span class="caption-text">3D-view BlackPill I/O carrier wit BlackPill and Bluethooth-board</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Modular Adaptation:</strong>
+To fit the carrier system, the PCB features <strong>perforated corners</strong> that can be easily snapped off. Once the corners are removed, the board slides into the UMK-BE housing base.</p>
+<p><strong>Connector Configuration:</strong>
+When using the DIN-rail variant, it is recommended to use <strong>vertical MCV connectors</strong>. This orientation ensures easy access to all wiring terminals from the front of the assembly.</p>
+</section>
+</section>
+</section>
+<section id="technical-data">
+<h2>Technical Data<a class="headerlink" href="#technical-data" title="Link to this heading"></a></h2>
+<p>This section summarizes the physical dimensions, weight, and environmental constraints of the BlackPill I/O Carrier.</p>
+<section id="dimensions-and-weight">
+<h3>Dimensions and Weight<a class="headerlink" href="#dimensions-and-weight" title="Link to this heading"></a></h3>
+<p>The following dimensions refer to the bare PCB without the optional enclosure.</p>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-number">Table 3:  </span><span class="caption-text">Physical Dimensions</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 50.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pos</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Length [l]</p></td>
+<td><p>76.25 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Width [w]</p></td>
+<td><p>72 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Height [h]</p></td>
+<td><p>25 mm</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="id33">
+<a class="reference internal image-reference" href="../_images/29_BPInterface_Dimensions.png"><img alt="Dimensional Drawing of the BlackPill Interface" src="../_images/29_BPInterface_Dimensions.png" style="width: 450px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 31:  </span><span class="caption-text">Dimension parameters BlackPill I/O carrier</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-number">Table 4:  </span><span class="caption-text">Weight Specification</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 60.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pos</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>STM32F4xx BlackPill interface (fully assembled)</p></td>
+<td><p>80 g</p></td>
+</tr>
+</tbody>
+</table>
+<section id="dimensions-including-din-rail-enclosure">
+<h4>Dimensions including DIN-rail enclosure<a class="headerlink" href="#dimensions-including-din-rail-enclosure" title="Link to this heading"></a></h4>
+<p>When mounted in the DIN-rail enclosure, the device has a width of approximately 78 mm and a height of 83 mm. Without connectors, the enclosure extends approximately 30 mm from the bottom edge of the DIN rail.</p>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-number">Table 5:  </span><span class="caption-text">Physical Dimensions including DIN-Rail enclosure</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 50.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pos</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Length [l]</p></td>
+<td><p>78 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Width [w]</p></td>
+<td><p>82 mm</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Height [h]</p></td>
+<td><p>30 mm</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="environmental-limits">
+<h3>Environmental Limits<a class="headerlink" href="#environmental-limits" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Development Use Only</strong></p>
+<p>This hardware is currently rated for <strong>development and evaluation purposes only</strong>. It is not certified for final deployment in safety-critical environments without further thermal and EMI testing.</p>
+</div>
+<ul class="simple">
+<li><p><strong>Operating Temperature:</strong> Indoor / Laboratory conditions.</p></li>
+<li><p><strong>Storage:</strong> Keep in a dry, anti-static environment.</p></li>
+</ul>
+</section>
+</section>
+<section id="component-assembling">
+<h2>Component Assembling<a class="headerlink" href="#component-assembling" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id36">
+<a class="reference internal image-reference" href="../_images/20_PCB_assembling_top.png"><img alt="PCB Assembly Top View" src="../_images/20_PCB_assembling_top.png" style="width: 45%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figure 32:  </span><span class="caption-text">Top assembling BlackPill I/O carrier</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="emc-and-safety-notice">
+<h2>EMC and Safety Notice<a class="headerlink" href="#emc-and-safety-notice" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>EMC Compliance Disclaimer</strong>
+This board is a <strong>Development Kit</strong> for evaluation in laboratory environments. It has not undergone formal EMC testing. To improve electromagnetic behavior:
+- Use shielded cables for encoder and communication signals.
+- Ensure a low-impedance connection to the system ground.
+- For specific evaluation setups, mount the board in a grounded metallic enclosure.</p>
+</div>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>This hardware is licensed under the <strong>CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S)</strong>.</p>
+</section>
+<section id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading"></a></h2>
+<p>STM32F4 is a registered trademark of STMicroelectronics Corporation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_hardware.html" class="btn btn-neutral float-left" title="Hardware Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter_3_stm32ide/index.html" class="btn btn-neutral float-right" title="STM32CubeIDE &amp; Code Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Gerhard Burger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

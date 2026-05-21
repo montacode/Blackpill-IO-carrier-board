@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dro_hal &mdash; BlackPill 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/standard.css?v=23468517" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/nav_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_intro/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#the-blackpill-i-o-carrier">The BlackPill I/O Carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#key-development-pillars">Key Development Pillars</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_hardware/index.html">I/O carrier hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html">Hardware Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#main-features">Main Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#technical-description">Technical Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#typical-applications">Typical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#development-and-evaluation-notice">Development and Evaluation Notice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html">Hardware Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#component-layout">Component Layout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#top-side-functions">Top Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#bottom-side-functions">Bottom Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#block-diagram-blackpill-i-o-carrier">Block diagram BlackPill I/O carrier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#technical-summary">Technical Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#hardware-customization-and-assembly">Hardware Customization and Assembly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#hardware-design">Hardware Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#power-supply-and-protection">Power Supply and Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#digital-and-analog-inputs">Digital and Analog Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#encoder-interfaces">Encoder Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#analog-or-pwm-output">Analog or PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#operational-amplifier-power-supply">Operational Amplifier Power Supply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#buzzer-leds">Buzzer &amp; LEDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#miniature-test-points-tp1-tp2">Miniature Test Points (TP1, TP2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#serial-interface-wireless-expansion">Serial Interface &amp; Wireless Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#programming-and-debugging">Programming and Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#st-link-v2-debugger">ST-Link V2 Debugger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#in-circuit-debugging-icd">In-Circuit Debugging (ICD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#flash-procedure">Flash Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#enclosure-options-and-mounting">Enclosure Options and Mounting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#polycarbonate-enclosure-ip65">Polycarbonate enclosure (IP65)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#din-rail-mounting-hat-rail">DIN-Rail Mounting (Hat Rail)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#technical-data">Technical Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#dimensions-and-weight">Dimensions and Weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#environmental-limits">Environmental Limits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#component-assembling">Component Assembling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#emc-and-safety-notice">EMC and Safety Notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_stm32ide/index.html">STM32CubeIDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#examples-overview">Examples Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-1-blinking-led-pb10">Example 1: Blinking LED (PB10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-2-serial-pwm-buzzer-control-pb8">Example 2: Serial PWM Buzzer Control (PB8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-3-32-bit-encoder-reading-pa1-pa5">Example 3: 32-Bit Encoder Reading (PA1 &amp; PA5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-4-pwm-ramp-dac-signal-pb9">Example 4: PWM Ramp / DAC Signal (PB9)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_arduino/index.html">Arduino IDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#pin-mapping-overview">Pin Mapping Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-1-blinking-led-status-check">Example 1: Blinking LED (Status Check)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-2-serial-usb-control-buzzer">Example 2: Serial USB Control &amp; Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-3-32-bit-hardware-encoder-reading">Example 3: 32-Bit Hardware Encoder Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-4-5-second-pwm-ramp">Example 4: 5-Second PWM Ramp</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project: Digital Indexer:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_dro_app/index.html">Project Digital Indexer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#project-overview">Project Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#documentation-structure">Documentation Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/hardware_setup.html">Digital indexer - Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/hardware_setup.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/firmware_logic.html">Digital indexer - Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/firmware_logic.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/android_app.html">Digital indexer - Android Application: AKKON DRO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#main-interface-and-visualization">Main Interface and Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#targeting-and-divider-function">Targeting and Divider Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#coordinate-systems-and-offsets">Coordinate Systems and Offsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#system-management-and-communication">System Management and Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/android_app.html#settings-and-customization">Settings and Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/lathe_integration.html">Digital indexer - LATHE integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/lathe_integration.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/operation_manual.html">Ditial indexer - operation manual Android App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/operation_manual.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html">Python &amp; Read Encoders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#functional-description">Functional Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#program-code">Program Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#program-output-result">Program output result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_5_dro_app/ex_dro_comm.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_5_dro_app/index.html#development-disclaimer">Development Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_python/index.html">Python Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html">Hardware Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#module-dro_hal">DRO Hardware Abstraction Layer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro-hardware-abstraction-layer-hal">DRO Hardware Abstraction Layer (HAL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController"><code class="docutils literal notranslate"><span class="pre">DROController</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Revision History</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BlackPill</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">dro_hal</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for dro_hal</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">DRO Hardware Abstraction Layer (HAL)</span>
+<span class="sd">====================================</span>
+
+<span class="sd">The ``dro_hal`` module serves as the primary communication bridge between </span>
+<span class="sd">Python and the AKKON Digital Read Out (DRO) controller. It encapsulates </span>
+<span class="sd">the serial communication protocol and provides a high-level API to access </span>
+<span class="sd">real-time encoder data and device information.</span>
+
+<span class="sd">:Version: 1.0.0</span>
+<span class="sd">:Author: Gerhard Burger</span>
+<span class="sd">:Copyright: 2026, Gerhard Burger</span>
+<span class="sd">:License: MIT</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">struct</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gerhard Burger&quot;</span>
+
+<div class="viewcode-block" id="DROController">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DROController</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main controller class for managing communication with the BlackPill I/O Carrier.</span>
+<span class="sd">    </span>
+<span class="sd">    This class handles the serial connection, packet framing, and the conversion </span>
+<span class="sd">    of raw binary data into structured Python types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Constants from the Delphi unit</span>
+    <span class="n">MAX_AXES</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">DRO_SUCCESS</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">DRO_DTMOK</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">DRO_ERR_CRC</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span>
+    <span class="n">DRO_ERR_SEND_FAIL</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">DRO_ERR_NOT_ACCEPTED</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+    <span class="n">DRO_ERR_INVALID_AXIS</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+
+    <span class="c1"># Command Codes</span>
+    <span class="n">DRO_GET_CONTROLLER_INFO</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">DRO_SET_ZERO</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">DRO_SET_TRANSMISSION</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">DRO_GET_DEVICE_INFO</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">DRO_SET_NEXT_DIVIDER</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">DRO_SET_PREV_DIVIDER</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">DRO_SET_DIVIDER_INDEX</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">DRO_SET_CUSTOM_DIVIDER</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">DRO_SET_BUZZER_STATE</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">DRO_GET_PARAMS</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">DRO_SET_PARAMS</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">DRO_SET_ENCODER_RESOLUTION</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="n">DRO_SET_POSITION_MONITOR_PARAMS</span> <span class="o">=</span> <span class="mi">14</span>
+    <span class="n">DRO_SET_AXIS_FLAG</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="n">DRO_SET_R0X_VALUE</span> <span class="o">=</span> <span class="mi">17</span>
+    <span class="n">DRO_SET_R0X</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">DRO_SET_W0X_VALUE</span> <span class="o">=</span> <span class="mi">21</span>
+    <span class="n">DRO_GET_R0X_VALUE</span> <span class="o">=</span> <span class="mi">22</span>
+    <span class="n">DRO_GET_W0X_VALUE</span> <span class="o">=</span> <span class="mi">23</span>
+    <span class="n">DRO_SET_HC05_CONFIG</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">DRO_JUMP_BOOTLOADER</span> <span class="o">=</span> <span class="mi">99</span>
+
+    <span class="c1"># Struct formats (packed records)</span>
+    <span class="c1"># &lt; = Little Endian, q = int64, H = uint16, B = byte, I = uint32, h = int16</span>
+    <span class="n">FMT_DEVICE_CONTEXT_INFO</span> <span class="o">=</span> <span class="s2">&quot;&lt;BBBBB B 22s 11s&quot;</span>
+    <span class="n">FMT_DRO_INFO_REC</span> <span class="o">=</span> <span class="s2">&quot;&lt;q H B B h&quot;</span>
+    <span class="n">FMT_CONTROLLER_INFO_REC</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">MAX_AXES</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="n">FMT_DRO_INFO_REC</span><span class="p">)</span><span class="si">}</span><span class="s2">s B&quot;</span>
+    <span class="n">FMT_TRANSMISSION_PARAMS</span> <span class="o">=</span> <span class="s2">&quot;&lt;I I I&quot;</span>
+    <span class="n">FMT_POSITION_MONITOR</span> <span class="o">=</span> <span class="s2">&quot;&lt;I I&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the DROController and opens the serial port.</span>
+
+<span class="sd">        :param port: The serial port name (e.g., &#39;COM5&#39; or &#39;/dev/ttyUSB0&#39;).</span>
+<span class="sd">        :type port: str</span>
+<span class="sd">        :param baudrate: Connection speed, defaults to 115200.</span>
+<span class="sd">        :type baudrate: int</span>
+<span class="sd">        :param timeout: Serial read timeout in seconds, defaults to 1.</span>
+<span class="sd">        :type timeout: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bt_device_name</span> <span class="o">=</span> <span class="s2">&quot;AKKON_DRO&quot;</span>
+
+<div class="viewcode-block" id="DROController.calc_crc8">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.calc_crc8">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calc_crc8</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the CRC-8-ATM checksum for a byte sequence.</span>
+
+<span class="sd">        Uses the polynomial 0x07. This is required for both outgoing </span>
+<span class="sd">        and incoming packets to ensure data integrity.</span>
+
+<span class="sd">        :param data: The data to be hashed.</span>
+<span class="sd">        :type data: bytes</span>
+<span class="sd">        :return: The 8-bit checksum.</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">polynomial</span> <span class="o">=</span> <span class="mh">0x07</span>
+        <span class="n">crc</span> <span class="o">=</span> <span class="mh">0x00</span>
+        <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">crc</span> <span class="o">^=</span> <span class="n">byte</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">crc</span> <span class="o">&amp;</span> <span class="mh">0x80</span><span class="p">:</span>
+                    <span class="n">crc</span> <span class="o">=</span> <span class="p">((</span><span class="n">crc</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">^</span> <span class="n">polynomial</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crc</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="k">return</span> <span class="n">crc</span></div>
+
+
+<div class="viewcode-block" id="DROController.send_receive">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.send_receive">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">payload</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">expected_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Low-level method to handle the binary protocol exchange.</span>
+
+<span class="sd">        Constructs a packet with start byte $24, command, length, and CRC.</span>
+<span class="sd">        Then waits for the controller&#39;s response and validates its checksum.</span>
+
+<span class="sd">        :param cmd: The command identifier.</span>
+<span class="sd">        :type cmd: int</span>
+<span class="sd">        :param payload: Optional binary data to send, defaults to b&quot;&quot;.</span>
+<span class="sd">        :type payload: bytes</span>
+<span class="sd">        :param expected_len: Expected size of the returned data payload, defaults to 0.</span>
+<span class="sd">        :type expected_len: int</span>
+<span class="sd">        :return: A tuple of (status, data). Status 0 indicates success.</span>
+<span class="sd">        :rtype: tuple(int, bytes or None)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;BBB&quot;</span><span class="p">,</span> <span class="mh">0x24</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
+        <span class="n">full_packet</span> <span class="o">=</span> <span class="n">header</span> <span class="o">+</span> <span class="n">payload</span>
+        <span class="n">crc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_crc8</span><span class="p">(</span><span class="n">full_packet</span><span class="p">)</span>
+        <span class="n">full_packet</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">crc</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">full_packet</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">expected_len</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x24</span><span class="p">:</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">data_len</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+                <span class="n">actual_data</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">4</span><span class="o">+</span><span class="n">data_len</span><span class="p">]</span>
+                <span class="n">check_data</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="o">+</span><span class="n">data_len</span><span class="p">]</span>
+                <span class="n">calc_crc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_crc8</span><span class="p">(</span><span class="n">check_data</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">calc_crc</span> <span class="o">==</span> <span class="n">response</span><span class="p">[</span><span class="mi">4</span><span class="o">+</span><span class="n">data_len</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="n">status</span><span class="p">,</span> <span class="n">actual_data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">DRO_ERR_CRC</span><span class="p">,</span> <span class="kc">None</span>
+                    
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">DRO_ERR_SEND_FAIL</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Communication Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">DRO_ERR_SEND_FAIL</span><span class="p">,</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="DROController.set_zero">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.set_zero">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_zero</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resets the position of a specific axis to zero.</span>
+
+<span class="sd">        :param axis: Index of the axis (0, 1, or 2).</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :return: True if the command was acknowledged successfully.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_SET_ZERO</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;B&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="DROController.set_divider_index">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.set_divider_index">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_divider_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the divider index for an axis to scale the encoder input.</span>
+
+<span class="sd">        :param axis: Index of the axis.</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :param index: The divider index value.</span>
+<span class="sd">        :type index: int</span>
+<span class="sd">        :return: True on success.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_SET_DIVIDER_INDEX</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;BB&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">index</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="DROController.set_custom_divider">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.set_custom_divider">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_custom_divider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets a specific custom divider value for an axis.</span>
+
+<span class="sd">        :param axis: Index of the axis.</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :param value: The custom 16-bit divider value.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        :return: True on success.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_SET_CUSTOM_DIVIDER</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;BH&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="DROController.set_w0x_value">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.set_w0x_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_w0x_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the workpiece zero point (W0x) for the given axis.</span>
+
+<span class="sd">        :param axis: Index of the axis.</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :param value: The 64-bit integer position value.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        :return: True on success.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_SET_W0X_VALUE</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;Bq&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="DROController.get_w0x_value">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.get_w0x_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_w0x_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves the current workpiece zero point (W0x) from the controller.</span>
+
+<span class="sd">        :param axis: Index of the axis.</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :return: The 64-bit position value, or None if the request failed.</span>
+<span class="sd">        :rtype: int or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_GET_W0X_VALUE</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;B&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">),</span> <span class="n">expected_len</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&lt;Bq&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="DROController.set_transmission">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.set_transmission">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_transmission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">den</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">res</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Configures the mechanical gear ratio and encoder resolution.</span>
+
+<span class="sd">        :param axis: Index of the axis.</span>
+<span class="sd">        :type axis: int</span>
+<span class="sd">        :param num: Gear ratio numerator.</span>
+<span class="sd">        :type num: int</span>
+<span class="sd">        :param den: Gear ratio denominator.</span>
+<span class="sd">        :type den: int</span>
+<span class="sd">        :param res: Encoder resolution (pulses per unit).</span>
+<span class="sd">        :type res: int</span>
+<span class="sd">        :return: True on success.</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&lt;BIII&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_SET_TRANSMISSION</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="DROController.get_device_info">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.get_device_info">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_device_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fetches hardware and firmware metadata from the controller.</span>
+
+<span class="sd">        :return: Dictionary containing &#39;HW_Ver&#39;, &#39;FW_Ver&#39;, &#39;AxisCount&#39;, &#39;Date&#39;, and &#39;Name&#39;.</span>
+<span class="sd">        :rtype: dict or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">expected_size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FMT_DEVICE_CONTEXT_INFO</span><span class="p">)</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_GET_DEVICE_INFO</span><span class="p">,</span> <span class="n">expected_len</span><span class="o">=</span><span class="n">expected_size</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">expected_size</span><span class="p">:</span>
+            <span class="n">unpacked</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FMT_DEVICE_CONTEXT_INFO</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s2">&quot;HW_Ver&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;FW_Ver&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">unpacked</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AxisCount&quot;</span><span class="p">:</span> <span class="n">unpacked</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                <span class="s2">&quot;Date&quot;</span><span class="p">:</span> <span class="n">unpacked</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+                <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">unpacked</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="DROController.read_controller_info">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.read_controller_info">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_controller_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reads real-time data for all axes simultaneously.</span>
+
+<span class="sd">        Returns a list of dictionaries, one for each axis, containing position, </span>
+<span class="sd">        velocity, and status flags.</span>
+
+<span class="sd">        :return: List of axis data dictionaries, or None on failure.</span>
+<span class="sd">        :rtype: list or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">status</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_receive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DRO_GET_CONTROLLER_INFO</span><span class="p">,</span> <span class="n">expected_len</span><span class="o">=</span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FMT_CONTROLLER_INFO_REC</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">axes</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">info_size</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FMT_DRO_INFO_REC</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MAX_AXES</span><span class="p">):</span>
+                <span class="n">chunk</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">info_size</span> <span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">info_size</span><span class="p">]</span>
+                <span class="n">pos</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">div_idx</span><span class="p">,</span> <span class="n">vel</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FMT_DRO_INFO_REC</span><span class="p">,</span> <span class="n">chunk</span><span class="p">)</span>
+                <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;Pos&quot;</span><span class="p">:</span> <span class="n">pos</span><span class="p">,</span> 
+                    <span class="s2">&quot;Div&quot;</span><span class="p">:</span> <span class="n">div</span><span class="p">,</span> 
+                    <span class="s2">&quot;Vel&quot;</span><span class="p">:</span> <span class="n">vel</span><span class="p">,</span> 
+                    <span class="s2">&quot;Flags&quot;</span><span class="p">:</span> <span class="n">flags</span><span class="p">,</span>
+                    <span class="s2">&quot;DivIdx&quot;</span><span class="p">:</span> <span class="n">div_idx</span>
+                <span class="p">})</span>
+            <span class="k">return</span> <span class="n">axes</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="DROController.close">
+<a class="viewcode-back" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Safely closes the serial connection to the hardware.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Gerhard Burger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

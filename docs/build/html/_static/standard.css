@@ -1,0 +1,184 @@
+/* ==========================================================================
+   SIDEBAR & CONTENT ALIGNMENT (CALIBRI & STRICT LAYOUT - RTD ADAPTION)
+   ========================================================================== */
+
+/* 1. Schriftart global auf Calibri erzwingen */
+body, 
+.wy-nav-side, 
+.wy-nav-side input, 
+.wy-nav-content-wrap, 
+h1, h2, h3, h4, p, li, a {
+    font-family: Calibri, Candara, "Segoe UI", Optima, Arial, sans-serif !important;
+}
+
+/* 2. Sidebar Grundkonfiguration */
+.wy-nav-side {
+    background-color: rgb(244, 247, 249) !important;
+    border-right: 1px solid #dcdfe3;
+    width: 300px !important;
+}
+
+/* 3. Logo-Bereich */
+.wy-side-nav-search {
+    background-color: rgb(244, 247, 249) !important;
+    text-align: left !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 10px 0 10px 5px !important; /* margin-left: 5px ersatz */
+}
+
+.wy-side-nav-search img.logo {
+    display: block !important;
+    max-width: 220px !important;
+    height: auto !important;
+    margin: 10px 0 !important;
+}
+
+/* Projekttitel unter dem Logo ausblenden (falls in conf.py logo_only: True) */
+.wy-side-nav-search > a {
+    color: #455a64 !important;
+    font-size: 1.1em;
+}
+
+/* 4. Navigation (Menü-Punkte) */
+.wy-menu-vertical ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.wy-menu-vertical a {
+    color: #455a64 !important;
+    display: block !important;
+    padding: 10px 25px !important; 
+    text-decoration: none !important;
+    border-left: 5px solid transparent !important; 
+    transition: all 0.1s ease-in-out;
+    text-align: left !important;
+    font-size: 1.1em !important;
+    background-color: transparent !important;
+}
+
+/* --- 4a. Hierarchie & Unterkapitel --- */
+
+/* Einrueckung fuer die zweite Ebene (L2) */
+.wy-menu-vertical li.toctree-l2 a {
+    padding-left: 45px !important; 
+    font-size: 0.95em !important;   
+    font-weight: normal !important;
+    border-left: 3px solid transparent !important; /* Schmalerer Balken fuer Unterpunkte vorbereitet */
+}
+
+/* Einrueckung fuer die dritte Ebene (L3) */
+.wy-menu-vertical li.toctree-l3 a {
+    padding-left: 65px !important;
+}
+
+/* Hover-Zustand */
+.wy-menu-vertical a:hover {
+    background-color: #eef2f5 !important;
+    color: rgb(0, 124, 145) !important; 
+}
+
+/* Aktiv-Zustand (Hauptpunkt) */
+.wy-menu-vertical li.toctree-l1.current > a {
+    background-color: #e8f1f3 !important; 
+    color: rgb(0, 124, 145) !important;
+    border-left: 5px solid rgb(0, 124, 145) !important; 
+    font-weight: bold !important;
+}
+
+/* Aktiv-Zustand (Unterpunkt L2) */
+.wy-menu-vertical li.toctree-l2.current > a {
+    background-color: #e8f1f3 !important; 
+    color: rgb(0, 124, 145) !important;
+    border-left: 3px solid rgb(0, 124, 145) !important; /* Der gewuenschte schmalere Balken */
+}
+
+/* 5. Hauptinhalt (Body) */
+.wy-nav-content-wrap {
+    background-color: #ffffff !important;
+    margin-left: 300px !important; /* Muss zur Sidebar-Breite passen */
+}
+
+.wy-body-for-nav {
+    background: #ffffff !important;
+}
+
+.wy-nav-content {
+    padding: 30px 40px !important;
+    max-width: none !important; /* Damit der Inhalt nicht künstlich schmal wird */
+}
+
+h1 {
+    margin-top: 0 !important;
+    font-weight: normal !important;
+    color: #2c3e50 !important;
+}
+
+/* 6. Suchfeld am unteren Ende der Sidebar-Header-Sektion */
+.wy-side-nav-search input[type=text] {
+    border: 1px solid #dcdfe3 !important;
+    border-radius: 0 !important;
+    padding: 6px 10px !important;
+}
+
+/* Breadcrumbs (Pfad-Navigation oben) ausblenden, falls gewuenscht, 
+   oder schlicht halten wie im alten Design */
+.wy-breadcrumbs {
+    margin-bottom: 20px !important;
+    color: #777 !important;
+}
+
+table.changelog thead th {
+    background-color: rgb(0, 124, 145) !important;
+    color: white !important;
+}
+
+/* Erhöht den Abstand über jeder Hinweisbox */
+div.admonition {
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+}
+
+/* ==========================================================================
+   QUADRATISCHE PETROL BULLETS (RTD THEME)
+   ========================================================================== */
+
+/* 1. Standard-Aufzählungspunkte im Hauptinhalt entfernen */
+.wy-nav-content ul li {
+    list-style: none !important;
+}
+
+/* 2. Platz für das neue Bullet schaffen */
+.wy-nav-content ul {
+    margin-left: 1.2em !important;
+    list-style: none !important;
+}
+
+/* 3. Das Quadrat (Petrol) als Pseudoelement einfügen */
+.wy-nav-content ul li::before {
+    content: "■" !important; /* Unicode Quadrat */
+    color: rgb(0, 124, 145) !important; /* Dein Petrol-Ton */
+    font-size: 0.55em !important;
+    
+    /* Positionierung links vom Text */
+    position: absolute;
+    margin-left: -1.3em;
+    margin-top: 0.65em;
+    
+    display: inline-block !important;
+}
+
+/* 4. Sicherstellen, dass Listenelemente relativ positioniert sind */
+.wy-nav-content ul li {
+    position: relative;
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+/* 5. Verschachtelte Listen (Unterpunkte) einrücken */
+.wy-nav-content ul ul {
+    margin-left: 1.5em !important;
+    margin-top: 5px !important;
+}

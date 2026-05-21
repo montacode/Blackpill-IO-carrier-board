@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital indexer - Hardware &mdash; BlackPill 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/standard.css?v=23468517" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Digital indexer - Firmware" href="firmware_logic.html" />
+    <link rel="prev" title="Project Digital Indexer" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/nav_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_intro/index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#the-blackpill-i-o-carrier">The BlackPill I/O Carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_1_intro/index.html#key-development-pillars">Key Development Pillars</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_hardware/index.html">I/O carrier hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html">Hardware Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#main-features">Main Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#technical-description">Technical Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#typical-applications">Typical Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/02_hardware.html#development-and-evaluation-notice">Development and Evaluation Notice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html">Hardware Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#component-layout">Component Layout</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#top-side-functions">Top Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#bottom-side-functions">Bottom Side Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#block-diagram-blackpill-i-o-carrier">Block diagram BlackPill I/O carrier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#technical-summary">Technical Summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#hardware-customization-and-assembly">Hardware Customization and Assembly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#hardware-design">Hardware Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#power-supply-and-protection">Power Supply and Protection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#digital-and-analog-inputs">Digital and Analog Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#encoder-interfaces">Encoder Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#analog-or-pwm-output">Analog or PWM Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#operational-amplifier-power-supply">Operational Amplifier Power Supply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#buzzer-leds">Buzzer &amp; LEDs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#miniature-test-points-tp1-tp2">Miniature Test Points (TP1, TP2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#serial-interface-wireless-expansion">Serial Interface &amp; Wireless Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#programming-and-debugging">Programming and Debugging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#st-link-v2-debugger">ST-Link V2 Debugger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#in-circuit-debugging-icd">In-Circuit Debugging (ICD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#flash-procedure">Flash Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#enclosure-options-and-mounting">Enclosure Options and Mounting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#polycarbonate-enclosure-ip65">Polycarbonate enclosure (IP65)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#din-rail-mounting-hat-rail">DIN-Rail Mounting (Hat Rail)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#technical-data">Technical Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#dimensions-and-weight">Dimensions and Weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#environmental-limits">Environmental Limits</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#component-assembling">Component Assembling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#emc-and-safety-notice">EMC and Safety Notice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../chapter_2_hardware/pcb_details.html#disclaimer">Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_stm32ide/index.html">STM32CubeIDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#examples-overview">Examples Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-1-blinking-led-pb10">Example 1: Blinking LED (PB10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-2-serial-pwm-buzzer-control-pb8">Example 2: Serial PWM Buzzer Control (PB8)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-3-32-bit-encoder-reading-pa1-pa5">Example 3: 32-Bit Encoder Reading (PA1 &amp; PA5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_3_stm32ide/index.html#example-4-pwm-ramp-dac-signal-pb9">Example 4: PWM Ramp / DAC Signal (PB9)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_arduino/index.html">Arduino IDE &amp; Code Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#pin-mapping-overview">Pin Mapping Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-1-blinking-led-status-check">Example 1: Blinking LED (Status Check)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-2-serial-usb-control-buzzer">Example 2: Serial USB Control &amp; Buzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-3-32-bit-hardware-encoder-reading">Example 3: 32-Bit Hardware Encoder Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_4_arduino/index.html#example-4-5-second-pwm-ramp">Example 4: 5-Second PWM Ramp</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project: Digital Indexer:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Project Digital Indexer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#project-overview">Project Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#documentation-structure">Documentation Structure</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Digital indexer - Hardware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="firmware_logic.html">Digital indexer - Firmware</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="firmware_logic.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="android_app.html">Digital indexer - Android Application: AKKON DRO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="android_app.html#main-interface-and-visualization">Main Interface and Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="android_app.html#targeting-and-divider-function">Targeting and Divider Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="android_app.html#coordinate-systems-and-offsets">Coordinate Systems and Offsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="android_app.html#system-management-and-communication">System Management and Communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="android_app.html#settings-and-customization">Settings and Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lathe_integration.html">Digital indexer - LATHE integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="lathe_integration.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="operation_manual.html">Ditial indexer - operation manual Android App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="operation_manual.html#implementation-steps">Implementation Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ex_dro_comm.html">Python &amp; Read Encoders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ex_dro_comm.html#functional-description">Functional Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ex_dro_comm.html#program-code">Program Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ex_dro_comm.html#program-output-result">Program output result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ex_dro_comm.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ex_dro_comm.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#development-disclaimer">Development Disclaimer</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_python/index.html">Python Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html">Hardware Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#module-dro_hal">DRO Hardware Abstraction Layer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro-hardware-abstraction-layer-hal">DRO Hardware Abstraction Layer (HAL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples/dro_hal/hardware_abstraction_layer.html#dro_hal.DROController"><code class="docutils literal notranslate"><span class="pre">DROController</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Revision History</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BlackPill</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Project Digital Indexer</a></li>
+      <li class="breadcrumb-item active">Digital indexer - Hardware</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/chapter_5_dro_app/hardware_setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="digital-indexer-hardware">
+<h1>Digital indexer - Hardware<a class="headerlink" href="#digital-indexer-hardware" title="Link to this heading"></a></h1>
+<p>The Digital Readout (DRO) is a high-performance application for manual lathes and milling machines.</p>
+<ul class="simple">
+<li><p>Real-time axis tracking with low latency.</p></li>
+<li><p>Wireless data transmission to Android or Windows tablets.</p></li>
+<li><p>Robust mounting for machine shop environments.</p></li>
+</ul>
+<section id="implementation-steps">
+<h2>Implementation Steps<a class="headerlink" href="#implementation-steps" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Flash the specialized DRO firmware via ST-Link.</p></li>
+<li><p>Pair the Bluetooth module with the display device.</p></li>
+<li><p>Configure scaling factors for your linear scales.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Project Digital Indexer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="firmware_logic.html" class="btn btn-neutral float-right" title="Digital indexer - Firmware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Gerhard Burger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
