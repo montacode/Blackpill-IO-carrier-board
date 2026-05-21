@@ -6,13 +6,14 @@ docs/backup/
 .settings/
 =======
 # Alles, was du nicht willst:
+docs/build/
 backup/
 .settings/
 *.pyc
 __pycache__/
 
+
 # Alles, was du willst (explizit erlaubt):
-!docs/build/
 !docs/locale/
 !docs/source/
 >>>>>>> 385e9b4 (Project structure including source and build)
